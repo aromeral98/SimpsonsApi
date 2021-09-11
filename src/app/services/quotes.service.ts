@@ -11,8 +11,8 @@ export class QuotesService {
 
   constructor(private http:HttpClient) { }
 
-  getQuotes():Observable<Character[]>{
-    return this.http.get<Character[]>(environment.baseUrl)
-    
+  getQuotes(quantity:number):Observable<Character[]>{
+    return this.http.get<Character[]>(environment.baseUrl+'?count='+quantity)
 }
+
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Character } from '../pages/interfaces/character.interface';
 import { QuotesService } from '../services/quotes.service';
 
 @Component({
@@ -10,11 +11,14 @@ import { QuotesService } from '../services/quotes.service';
 export class HomeComponent implements OnInit {
 
 
-
   constructor() { }
 
- 
+
   ngOnInit(): void {
+   
+    
   }
 
-}
+  }
+
+
