@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Character } from 'src/app/pages/interfaces/character.interface';
+import { Component, Input, OnInit } from '@angular/core';
+import { Character } from 'src/app/interfaces/character.interface';
 import { QuotesService } from 'src/app/services/quotes.service';
 
 @Component({
@@ -8,19 +8,20 @@ import { QuotesService } from 'src/app/services/quotes.service';
   styles: [
   ]
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
+
+  @Input() character:Character[]=[]
+  @Input()  quantity!:number;
 
   constructor(private quotes:QuotesService) { }
-
-  character:Character[]=[]
-  quantity:number=1;
   generateQuote(quantity:number ){
     this.quotes.getQuotes(quantity)
-    .subscribe(resp=>{this.character=resp;})
-  }
-  ngOnInit(): void {
-    this.generateQuote(this.quantity)
-    
-  }
+    .subscribe(resp=>
+      {
+        this.character=resp;
+       
+      })
 
-}
+
+
+    }}

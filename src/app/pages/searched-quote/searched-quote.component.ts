@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
-import { Character } from '../interfaces/character.interface';
+import { Character } from '../../interfaces/character.interface';
 
 @Component({
   selector: 'app-searched-quote',
@@ -8,12 +8,17 @@ import { Character } from '../interfaces/character.interface';
   styleUrls: ['./searched-quote.component.scss']
 })
 export class SearchedQuoteComponent implements OnInit {
-  character:Character[]=[]
+  @Input() character:Character[]=[]
+  quantity:number=2;
   constructor(private quoteService:QuotesService) { }
-
+  
   
   
   ngOnInit(): void {
+  
+    this.quoteService.getQuotes(this.quantity)
+    .subscribe(resp=>{this.character =resp;
+    })
   }
 
 }
