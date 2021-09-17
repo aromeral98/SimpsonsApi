@@ -5,7 +5,12 @@
             <img [src]=property.image [style]="{height: '472px'}"> 
         </ng-template>
         <p>{{property.quote}}</p>
-        <button pButton type="button" label="Next quotes" (click)="generateQuote(quantity)"></button>
+        
+        <p-inputNumber [(ngModel)]="quantity" placeholder="Number Quotes" *ngIf="quantity!=1 && quantity!=0"></p-inputNumber>
+        <br>
+        <br>
+        <span class="spacer"></span>
+        <button pButton type="button" label="Next quotes" (click)="generateQuote(quantity)"></button><br>
     </p-card>
     
     </div>

@@ -19,7 +19,6 @@ export class CardComponent {
     .subscribe(resp=>
       {
         this.character=resp;
-       
       })
 
 

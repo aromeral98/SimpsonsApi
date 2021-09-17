@@ -1,6 +1,10 @@
 <div class="animate__animated animate__fadeInLeft">
     
+        <div *ngIf="character.length<1" style="text-align: center;">
+                <h5>Loading</h5>
+                <p-progressSpinner [style]="{width: '50px', height: '50px'}" styleClass="custom-spinner" strokeWidth="8" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner><br>
 
+        </div>
         <app-card [character]="character" [quantity]="quantity"></app-card>
 
 
